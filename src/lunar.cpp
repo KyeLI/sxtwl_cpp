@@ -227,8 +227,22 @@ Month Lunar::yueLiCalc(int By, uint8_t Bm)
     return month;
 }
 
-Day Lunar::getDayBySolar(int _year,  uint8_t _month, uint8_t _day)
+Day Lunar::getDayBySolar(int _year, uint8_t _month, uint8_t _day)
 {
+	if ((_month > 12 || _month <= 0))
+	{
+		throw  LunarException(ErrorCode_DateError);		
+	}
+	
+	static int num[13] = { 0,31,28,31,30,31,30,31,31,30,31,30,31 };
+	if (_day <= 0 || _day > num[_month])
+	{
+		if (!(_month == 2 && _year % 4 == 0 && _day == 29))
+		{
+			throw LunarException(ErrorCode_DateError);			
+		}
+	}
+
    	Month month;
     int  Bd0, Bdn;
     
@@ -465,8 +479,9 @@ Day Lunar::getDayBySolar(int _year,  uint8_t _month, uint8_t _day)
         
         auto jd =  JD::toJD(t2);
         Time t3 = JD::JD2DD(jd + J2000);
-        
+		
         day.cur_jq.push_back( jd );
+		day.cur_cn.push_back((int)xn);
     }
     
     
@@ -480,6 +495,13 @@ Day Lunar::getDayByLunar(int year, uint8_t month, uint8_t day, bool isRun)
     {
         year = year + 1;
     }
+
+	if  (month > 12 || month < 0 )
+	{
+		throw LunarException (ErrorCode_DateError);		
+	}
+
+
     //计算1月1号的信息
     Time t;
     t.h = 12, t.m = 0, t.s = 0.1;
@@ -493,32 +515,98 @@ Day Lunar::getDayByLunar(int year, uint8_t month, uint8_t day, bool isRun)
         mSSQ.calcY(Bd0);
     }
     
-    int mk = 0;
-    for(auto it = mSSQ.ym.begin(); it != mSSQ.ym.end(); ++it)
+    //{ "十一", "十二", "正", "二", "三", "四", "五", "六", "七", "八", "九", "十" }
+   // static int mkIndex[] = { 11, 12, 1,2,3,4,5,6,7, 8,9,10 };
+    static int yueIndex[] = { 11, 12, 1,2,3,4,5,6,7, 8,9,10 };
+    
+    
+    int yue = 0;
+    
+    for(int i = 0; i < sizeof(yueIndex); ++i)
     {
-        if(mSSQ.ym[*it] == month)
+        if( *(yueIndex + i) == month)
         {
-            mk = *it;
+            yue = i;
             break;
         }
     }
-    //{ "十一", "十二", "正", "二", "三", "四", "五", "六", "七", "八", "九", "十" }
     
-    static int mkIndex[] = { 0, 2, 3,4,5,6,7,8,9, 10,11,0,1 };
-    
-     mk = mkIndex[month ];
-    if (isRun  &&  (mSSQ.leap&&mSSQ.leap ==  mkIndex[month + 1]) )
+    int mk = 0;
+    int leap = mSSQ.leap - 1;
+
+	if (isRun && ((leap < 0)  ||   ( leap >= 0 && month != yueIndex[leap])) )
+	{
+		throw LunarException(ErrorCode_NotRun);
+	}
+
+    for(auto it = mSSQ.ym.begin(); it != mSSQ.ym.end(); ++it)
     {
-         mk = mkIndex[month + 1];
+        
+        if(leap < 0)
+        {
+            if(*it == yue)
+            {
+                break;
+            }
+        }else{
+            if(yue < leap && *it == yue)
+            {
+                break;
+            }
+            
+            if(yue == leap && *it == yue && isRun)
+            {
+                ++mk;
+                break;
+            }
+            
+            if(yue == leap && *it == yue && !isRun)
+            {
+                break;
+            }
+            
+            if(yue > leap && *it == yue )
+            {
+                break;
+            }
+            
+        }
+        ++mk;
     }
+    
+//    if(mSSQ.leap > 0 && (mSSQ.leap < month || (isRun && mSSQ.leap == month)))
+//    {
+//        mk = mSSQ.ym[month + 1];
+//    }else{
+//        mk = mSSQ.ym[month];
+//    }
+    
+    
+    
+    
+//    static int mkIndex[] = { 0, 2, 3,4,5,6,7,8,9, 10,11,0,1 };
+//    mk = mkIndex[month];
+    
+
+//    if ((isRun  &&  (mSSQ.leap&&mSSQ.leap ==  mkIndex[month + 1]) ) ||
+//        (mSSQ.leap > 0 && mSSQ.leap < mkIndex[month + 1 ]) )
+//    {
+//         mk = mkIndex[month + 1];
+//    }
     
     //阴历首月的儒略日
     int bdi =  mSSQ.HS[mk];
+	
+	//mk会不会超出超出预期？
+	if (mSSQ.HS[mk + 1] - mSSQ.HS[mk] < day || day <= 0)
+	{
+		throw LunarException(ErrorCode_DateError);		
+	}
+
     int jd = bdi + day - 1;
     
-   
-    
     t  = JD::JD2DD(J2000 + jd);
+	
     return getDayBySolar(t.Y, t.M, t.D);
 }
 
@@ -582,4 +670,121 @@ Year Lunar::getYearCal(int By)
     ret.ShX = c % 12;
     
     return ret;
+}
+
+
+uint8_t Lunar::getRunMonth(int By)
+{
+	//计算1月1号的信息
+	Time t;
+	t.h = 12, t.m = 0, t.s = 0.1;
+	t.Y = By; t.M = 1; t.D = 1;
+
+	//公历月首的儒略日,中午;
+	int Bd0 = int2(JD::toJD(t)) - J2000;
+
+	if (!mSSQ.ZQ.size() || Bd0 < mSSQ.ZQ[0] || Bd0 >= mSSQ.ZQ[24])
+	{
+		mSSQ.calcY(Bd0);
+	}
+
+	//{ "十一", "十二", "正", "二", "三", "四", "五", "六", "七", "八", "九", "十" }
+	// static int mkIndex[] = { 11, 12, 1,2,3,4,5,6,7, 8,9,10 };
+	static int yueIndex[] = { 11, 12, 1,2,3,4,5,6,7, 8,9,10 };
+
+	int leap = mSSQ.leap - 1;
+	if (leap < 0)
+	{
+		return 0;
+	}
+	return yueIndex[leap];
+	
+}
+
+uint8_t Lunar::getLunarMonthNum(int year, uint8_t month, bool isRun )
+{
+	if (month > 10)
+	{
+		year = year + 1;
+	}
+
+
+	//计算1月1号的信息
+	Time t;
+	t.h = 12, t.m = 0, t.s = 0.1;
+	t.Y = year; t.M = 1; t.D = 1;
+
+	//公历月首的儒略日,中午;
+	int Bd0 = int2(JD::toJD(t)) - J2000;
+
+	if (!mSSQ.ZQ.size() || Bd0 < mSSQ.ZQ[0] || Bd0 >= mSSQ.ZQ[24])
+	{
+		mSSQ.calcY(Bd0);
+	}
+
+	//{ "十一", "十二", "正", "二", "三", "四", "五", "六", "七", "八", "九", "十" }
+	// static int mkIndex[] = { 11, 12, 1,2,3,4,5,6,7, 8,9,10 };
+	static int yueIndex[] = { 11, 12, 1,2,3,4,5,6,7, 8,9,10 };
+
+
+	int yue = 0;
+
+	for (int i = 0; i < sizeof(yueIndex); ++i)
+	{
+		if (*(yueIndex + i) == month)
+		{
+			yue = i;
+			break;
+		}
+	}
+
+	int mk = 0;
+	int leap = mSSQ.leap - 1;
+
+	if (isRun && ((leap < 0) || (leap >= 0 && month != yueIndex[leap])))
+	{
+		throw LunarException(ErrorCode_NotRun);
+	}
+
+	for (auto it = mSSQ.ym.begin(); it != mSSQ.ym.end(); ++it)
+	{
+
+		if (leap < 0)
+		{
+			if (*it == yue)
+			{
+				break;
+			}
+		}
+		else {
+			if (yue < leap && *it == yue)
+			{
+				break;
+			}
+
+			if (yue == leap && *it == yue && isRun)
+			{
+				++mk;
+				break;
+			}
+
+			if (yue == leap && *it == yue && !isRun)
+			{
+				break;
+			}
+
+			if (yue > leap && *it == yue)
+			{
+				break;
+			}
+
+		}
+		++mk;
+	}
+
+
+	//阴历首月的儒略日
+	int bdi = mSSQ.HS[mk];
+
+	return mSSQ.HS[mk + 1] - mSSQ.HS[mk];
 }
