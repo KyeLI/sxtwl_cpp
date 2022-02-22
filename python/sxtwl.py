@@ -122,474 +122,113 @@ class SwigPyIterator(object):
 # Register SwigPyIterator in _sxtwl:
 _sxtwl.SwigPyIterator_swigregister(SwigPyIterator)
 
-class DayList(object):
+class JDList(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
 
     def iterator(self):
-        return _sxtwl.DayList_iterator(self)
+        return _sxtwl.JDList_iterator(self)
     def __iter__(self):
         return self.iterator()
 
     def __nonzero__(self):
-        return _sxtwl.DayList___nonzero__(self)
+        return _sxtwl.JDList___nonzero__(self)
 
     def __bool__(self):
-        return _sxtwl.DayList___bool__(self)
+        return _sxtwl.JDList___bool__(self)
 
     def __len__(self):
-        return _sxtwl.DayList___len__(self)
+        return _sxtwl.JDList___len__(self)
 
     def __getslice__(self, i, j):
-        return _sxtwl.DayList___getslice__(self, i, j)
+        return _sxtwl.JDList___getslice__(self, i, j)
 
     def __setslice__(self, *args):
-        return _sxtwl.DayList___setslice__(self, *args)
+        return _sxtwl.JDList___setslice__(self, *args)
 
     def __delslice__(self, i, j):
-        return _sxtwl.DayList___delslice__(self, i, j)
+        return _sxtwl.JDList___delslice__(self, i, j)
 
     def __delitem__(self, *args):
-        return _sxtwl.DayList___delitem__(self, *args)
+        return _sxtwl.JDList___delitem__(self, *args)
 
     def __getitem__(self, *args):
-        return _sxtwl.DayList___getitem__(self, *args)
+        return _sxtwl.JDList___getitem__(self, *args)
 
     def __setitem__(self, *args):
-        return _sxtwl.DayList___setitem__(self, *args)
+        return _sxtwl.JDList___setitem__(self, *args)
 
     def pop(self):
-        return _sxtwl.DayList_pop(self)
+        return _sxtwl.JDList_pop(self)
 
     def append(self, x):
-        return _sxtwl.DayList_append(self, x)
+        return _sxtwl.JDList_append(self, x)
 
     def empty(self):
-        return _sxtwl.DayList_empty(self)
+        return _sxtwl.JDList_empty(self)
 
     def size(self):
-        return _sxtwl.DayList_size(self)
+        return _sxtwl.JDList_size(self)
 
     def swap(self, v):
-        return _sxtwl.DayList_swap(self, v)
+        return _sxtwl.JDList_swap(self, v)
 
     def begin(self):
-        return _sxtwl.DayList_begin(self)
+        return _sxtwl.JDList_begin(self)
 
     def end(self):
-        return _sxtwl.DayList_end(self)
+        return _sxtwl.JDList_end(self)
 
     def rbegin(self):
-        return _sxtwl.DayList_rbegin(self)
+        return _sxtwl.JDList_rbegin(self)
 
     def rend(self):
-        return _sxtwl.DayList_rend(self)
+        return _sxtwl.JDList_rend(self)
 
     def clear(self):
-        return _sxtwl.DayList_clear(self)
+        return _sxtwl.JDList_clear(self)
 
     def get_allocator(self):
-        return _sxtwl.DayList_get_allocator(self)
+        return _sxtwl.JDList_get_allocator(self)
 
     def pop_back(self):
-        return _sxtwl.DayList_pop_back(self)
+        return _sxtwl.JDList_pop_back(self)
 
     def erase(self, *args):
-        return _sxtwl.DayList_erase(self, *args)
+        return _sxtwl.JDList_erase(self, *args)
 
     def __init__(self, *args):
-        _sxtwl.DayList_swiginit(self, _sxtwl.new_DayList(*args))
+        _sxtwl.JDList_swiginit(self, _sxtwl.new_JDList(*args))
 
     def push_back(self, x):
-        return _sxtwl.DayList_push_back(self, x)
+        return _sxtwl.JDList_push_back(self, x)
 
     def front(self):
-        return _sxtwl.DayList_front(self)
+        return _sxtwl.JDList_front(self)
 
     def back(self):
-        return _sxtwl.DayList_back(self)
+        return _sxtwl.JDList_back(self)
 
     def assign(self, n, x):
-        return _sxtwl.DayList_assign(self, n, x)
+        return _sxtwl.JDList_assign(self, n, x)
 
     def resize(self, *args):
-        return _sxtwl.DayList_resize(self, *args)
+        return _sxtwl.JDList_resize(self, *args)
 
     def insert(self, *args):
-        return _sxtwl.DayList_insert(self, *args)
+        return _sxtwl.JDList_insert(self, *args)
 
     def reserve(self, n):
-        return _sxtwl.DayList_reserve(self, n)
+        return _sxtwl.JDList_reserve(self, n)
 
     def capacity(self):
-        return _sxtwl.DayList_capacity(self)
-    __swig_destroy__ = _sxtwl.delete_DayList
-
-# Register DayList in _sxtwl:
-_sxtwl.DayList_swigregister(DayList)
-
-class DoubleList(object):
-    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
-    __repr__ = _swig_repr
-
-    def iterator(self):
-        return _sxtwl.DoubleList_iterator(self)
-    def __iter__(self):
-        return self.iterator()
-
-    def __nonzero__(self):
-        return _sxtwl.DoubleList___nonzero__(self)
-
-    def __bool__(self):
-        return _sxtwl.DoubleList___bool__(self)
-
-    def __len__(self):
-        return _sxtwl.DoubleList___len__(self)
-
-    def __getslice__(self, i, j):
-        return _sxtwl.DoubleList___getslice__(self, i, j)
-
-    def __setslice__(self, *args):
-        return _sxtwl.DoubleList___setslice__(self, *args)
-
-    def __delslice__(self, i, j):
-        return _sxtwl.DoubleList___delslice__(self, i, j)
-
-    def __delitem__(self, *args):
-        return _sxtwl.DoubleList___delitem__(self, *args)
-
-    def __getitem__(self, *args):
-        return _sxtwl.DoubleList___getitem__(self, *args)
-
-    def __setitem__(self, *args):
-        return _sxtwl.DoubleList___setitem__(self, *args)
-
-    def pop(self):
-        return _sxtwl.DoubleList_pop(self)
-
-    def append(self, x):
-        return _sxtwl.DoubleList_append(self, x)
-
-    def empty(self):
-        return _sxtwl.DoubleList_empty(self)
-
-    def size(self):
-        return _sxtwl.DoubleList_size(self)
-
-    def swap(self, v):
-        return _sxtwl.DoubleList_swap(self, v)
-
-    def begin(self):
-        return _sxtwl.DoubleList_begin(self)
-
-    def end(self):
-        return _sxtwl.DoubleList_end(self)
-
-    def rbegin(self):
-        return _sxtwl.DoubleList_rbegin(self)
-
-    def rend(self):
-        return _sxtwl.DoubleList_rend(self)
-
-    def clear(self):
-        return _sxtwl.DoubleList_clear(self)
-
-    def get_allocator(self):
-        return _sxtwl.DoubleList_get_allocator(self)
-
-    def pop_back(self):
-        return _sxtwl.DoubleList_pop_back(self)
-
-    def erase(self, *args):
-        return _sxtwl.DoubleList_erase(self, *args)
-
-    def __init__(self, *args):
-        _sxtwl.DoubleList_swiginit(self, _sxtwl.new_DoubleList(*args))
-
-    def push_back(self, x):
-        return _sxtwl.DoubleList_push_back(self, x)
-
-    def front(self):
-        return _sxtwl.DoubleList_front(self)
-
-    def back(self):
-        return _sxtwl.DoubleList_back(self)
-
-    def assign(self, n, x):
-        return _sxtwl.DoubleList_assign(self, n, x)
-
-    def resize(self, *args):
-        return _sxtwl.DoubleList_resize(self, *args)
-
-    def insert(self, *args):
-        return _sxtwl.DoubleList_insert(self, *args)
-
-    def reserve(self, n):
-        return _sxtwl.DoubleList_reserve(self, n)
-
-    def capacity(self):
-        return _sxtwl.DoubleList_capacity(self)
-    __swig_destroy__ = _sxtwl.delete_DoubleList
-
-# Register DoubleList in _sxtwl:
-_sxtwl.DoubleList_swigregister(DoubleList)
-
-class IntList(object):
-    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
-    __repr__ = _swig_repr
-
-    def iterator(self):
-        return _sxtwl.IntList_iterator(self)
-    def __iter__(self):
-        return self.iterator()
-
-    def __nonzero__(self):
-        return _sxtwl.IntList___nonzero__(self)
-
-    def __bool__(self):
-        return _sxtwl.IntList___bool__(self)
-
-    def __len__(self):
-        return _sxtwl.IntList___len__(self)
-
-    def __getslice__(self, i, j):
-        return _sxtwl.IntList___getslice__(self, i, j)
-
-    def __setslice__(self, *args):
-        return _sxtwl.IntList___setslice__(self, *args)
-
-    def __delslice__(self, i, j):
-        return _sxtwl.IntList___delslice__(self, i, j)
-
-    def __delitem__(self, *args):
-        return _sxtwl.IntList___delitem__(self, *args)
-
-    def __getitem__(self, *args):
-        return _sxtwl.IntList___getitem__(self, *args)
-
-    def __setitem__(self, *args):
-        return _sxtwl.IntList___setitem__(self, *args)
-
-    def pop(self):
-        return _sxtwl.IntList_pop(self)
-
-    def append(self, x):
-        return _sxtwl.IntList_append(self, x)
-
-    def empty(self):
-        return _sxtwl.IntList_empty(self)
-
-    def size(self):
-        return _sxtwl.IntList_size(self)
-
-    def swap(self, v):
-        return _sxtwl.IntList_swap(self, v)
-
-    def begin(self):
-        return _sxtwl.IntList_begin(self)
-
-    def end(self):
-        return _sxtwl.IntList_end(self)
-
-    def rbegin(self):
-        return _sxtwl.IntList_rbegin(self)
-
-    def rend(self):
-        return _sxtwl.IntList_rend(self)
-
-    def clear(self):
-        return _sxtwl.IntList_clear(self)
-
-    def get_allocator(self):
-        return _sxtwl.IntList_get_allocator(self)
-
-    def pop_back(self):
-        return _sxtwl.IntList_pop_back(self)
-
-    def erase(self, *args):
-        return _sxtwl.IntList_erase(self, *args)
-
-    def __init__(self, *args):
-        _sxtwl.IntList_swiginit(self, _sxtwl.new_IntList(*args))
-
-    def push_back(self, x):
-        return _sxtwl.IntList_push_back(self, x)
-
-    def front(self):
-        return _sxtwl.IntList_front(self)
-
-    def back(self):
-        return _sxtwl.IntList_back(self)
-
-    def assign(self, n, x):
-        return _sxtwl.IntList_assign(self, n, x)
-
-    def resize(self, *args):
-        return _sxtwl.IntList_resize(self, *args)
-
-    def insert(self, *args):
-        return _sxtwl.IntList_insert(self, *args)
-
-    def reserve(self, n):
-        return _sxtwl.IntList_reserve(self, n)
-
-    def capacity(self):
-        return _sxtwl.IntList_capacity(self)
-    __swig_destroy__ = _sxtwl.delete_IntList
-
-# Register IntList in _sxtwl:
-_sxtwl.IntList_swigregister(IntList)
+        return _sxtwl.JDList_capacity(self)
+    __swig_destroy__ = _sxtwl.delete_JDList
+
+# Register JDList in _sxtwl:
+_sxtwl.JDList_swigregister(JDList)
 
 J2000 = _sxtwl.J2000
-class GZ(object):
-    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
-    __repr__ = _swig_repr
-
-    def __init__(self, *args):
-        _sxtwl.GZ_swiginit(self, _sxtwl.new_GZ(*args))
-    tg = property(_sxtwl.GZ_tg_get, _sxtwl.GZ_tg_set)
-    dz = property(_sxtwl.GZ_dz_get, _sxtwl.GZ_dz_set)
-    __swig_destroy__ = _sxtwl.delete_GZ
-
-# Register GZ in _sxtwl:
-_sxtwl.GZ_swigregister(GZ)
-
-class Day(object):
-    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
-    __repr__ = _swig_repr
-    d0 = property(_sxtwl.Day_d0_get, _sxtwl.Day_d0_set)
-    di = property(_sxtwl.Day_di_get, _sxtwl.Day_di_set)
-    y = property(_sxtwl.Day_y_get, _sxtwl.Day_y_set)
-    m = property(_sxtwl.Day_m_get, _sxtwl.Day_m_set)
-    d = property(_sxtwl.Day_d_get, _sxtwl.Day_d_set)
-    dn = property(_sxtwl.Day_dn_get, _sxtwl.Day_dn_set)
-    week0 = property(_sxtwl.Day_week0_get, _sxtwl.Day_week0_set)
-    week = property(_sxtwl.Day_week_get, _sxtwl.Day_week_set)
-    weeki = property(_sxtwl.Day_weeki_get, _sxtwl.Day_weeki_set)
-    weekN = property(_sxtwl.Day_weekN_get, _sxtwl.Day_weekN_set)
-    Ldi = property(_sxtwl.Day_Ldi_get, _sxtwl.Day_Ldi_set)
-    cur_dz = property(_sxtwl.Day_cur_dz_get, _sxtwl.Day_cur_dz_set)
-    cur_xz = property(_sxtwl.Day_cur_xz_get, _sxtwl.Day_cur_xz_set)
-    cur_lq = property(_sxtwl.Day_cur_lq_get, _sxtwl.Day_cur_lq_set)
-    cur_mz = property(_sxtwl.Day_cur_mz_get, _sxtwl.Day_cur_mz_set)
-    cur_xs = property(_sxtwl.Day_cur_xs_get, _sxtwl.Day_cur_xs_set)
-    cur_jq = property(_sxtwl.Day_cur_jq_get, _sxtwl.Day_cur_jq_set)
-    cur_cn = property(_sxtwl.Day_cur_cn_get, _sxtwl.Day_cur_cn_set)
-    Lmc = property(_sxtwl.Day_Lmc_get, _sxtwl.Day_Lmc_set)
-    Ldn = property(_sxtwl.Day_Ldn_get, _sxtwl.Day_Ldn_set)
-    Lleap = property(_sxtwl.Day_Lleap_get, _sxtwl.Day_Lleap_set)
-    Lmc2 = property(_sxtwl.Day_Lmc2_get, _sxtwl.Day_Lmc2_set)
-    qk = property(_sxtwl.Day_qk_get, _sxtwl.Day_qk_set)
-    Lyear = property(_sxtwl.Day_Lyear_get, _sxtwl.Day_Lyear_set)
-    Lyear0 = property(_sxtwl.Day_Lyear0_get, _sxtwl.Day_Lyear0_set)
-    Lyear2 = property(_sxtwl.Day_Lyear2_get, _sxtwl.Day_Lyear2_set)
-    Lyear3 = property(_sxtwl.Day_Lyear3_get, _sxtwl.Day_Lyear3_set)
-    Lyear4 = property(_sxtwl.Day_Lyear4_get, _sxtwl.Day_Lyear4_set)
-    Lmonth = property(_sxtwl.Day_Lmonth_get, _sxtwl.Day_Lmonth_set)
-    Lmonth2 = property(_sxtwl.Day_Lmonth2_get, _sxtwl.Day_Lmonth2_set)
-    Lday2 = property(_sxtwl.Day_Lday2_get, _sxtwl.Day_Lday2_set)
-    XiZ = property(_sxtwl.Day_XiZ_get, _sxtwl.Day_XiZ_set)
-    jqmc = property(_sxtwl.Day_jqmc_get, _sxtwl.Day_jqmc_set)
-    jqjd = property(_sxtwl.Day_jqjd_get, _sxtwl.Day_jqjd_set)
-    jqsj = property(_sxtwl.Day_jqsj_get, _sxtwl.Day_jqsj_set)
-    yxmc = property(_sxtwl.Day_yxmc_get, _sxtwl.Day_yxmc_set)
-    yxjd = property(_sxtwl.Day_yxjd_get, _sxtwl.Day_yxjd_set)
-    yxsj = property(_sxtwl.Day_yxsj_get, _sxtwl.Day_yxsj_set)
-
-    def __init__(self):
-        _sxtwl.Day_swiginit(self, _sxtwl.new_Day())
-    __swig_destroy__ = _sxtwl.delete_Day
-
-# Register Day in _sxtwl:
-_sxtwl.Day_swigregister(Day)
-
-class Month(object):
-    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
-    __repr__ = _swig_repr
-    y = property(_sxtwl.Month_y_get, _sxtwl.Month_y_set)
-    m = property(_sxtwl.Month_m_get, _sxtwl.Month_m_set)
-    ShX = property(_sxtwl.Month_ShX_get, _sxtwl.Month_ShX_set)
-    yearGan = property(_sxtwl.Month_yearGan_get, _sxtwl.Month_yearGan_set)
-    yearZhi = property(_sxtwl.Month_yearZhi_get, _sxtwl.Month_yearZhi_set)
-    days = property(_sxtwl.Month_days_get, _sxtwl.Month_days_set)
-
-    def __init__(self):
-        _sxtwl.Month_swiginit(self, _sxtwl.new_Month())
-    __swig_destroy__ = _sxtwl.delete_Month
-
-# Register Month in _sxtwl:
-_sxtwl.Month_swigregister(Month)
-
-class Year(object):
-    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
-    __repr__ = _swig_repr
-    y = property(_sxtwl.Year_y_get, _sxtwl.Year_y_set)
-    ShX = property(_sxtwl.Year_ShX_get, _sxtwl.Year_ShX_set)
-    yearGan = property(_sxtwl.Year_yearGan_get, _sxtwl.Year_yearGan_set)
-    yearZhi = property(_sxtwl.Year_yearZhi_get, _sxtwl.Year_yearZhi_set)
-
-    def __init__(self):
-        _sxtwl.Year_swiginit(self, _sxtwl.new_Year())
-    __swig_destroy__ = _sxtwl.delete_Year
-
-# Register Year in _sxtwl:
-_sxtwl.Year_swigregister(Year)
-
-ErrorCode_Success = _sxtwl.ErrorCode_Success
-ErrorCode_NotRun = _sxtwl.ErrorCode_NotRun
-ErrorCode_DateError = _sxtwl.ErrorCode_DateError
-class LunarException(Exception):
-    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
-    __repr__ = _swig_repr
-
-    def __init__(self, code):
-        _sxtwl.LunarException_swiginit(self, _sxtwl.new_LunarException(code))
-
-    def what(self):
-        return _sxtwl.LunarException_what(self)
-
-    def getErrorCode(self):
-        return _sxtwl.LunarException_getErrorCode(self)
-    __swig_destroy__ = _sxtwl.delete_LunarException
-
-# Register LunarException in _sxtwl:
-_sxtwl.LunarException_swigregister(LunarException)
-
-class Lunar(object):
-    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
-    __repr__ = _swig_repr
-
-    def yueLiCalc(self, By, Bm):
-        return _sxtwl.Lunar_yueLiCalc(self, By, Bm)
-
-    def getDayBySolar(self, year, month, day):
-        return _sxtwl.Lunar_getDayBySolar(self, year, month, day)
-
-    def getDayByLunar(self, year, month, day, isRun=False):
-        return _sxtwl.Lunar_getDayByLunar(self, year, month, day, isRun)
-
-    def siZhu2Year(self, year, yue, ri, shi, fromYear, toYear):
-        return _sxtwl.Lunar_siZhu2Year(self, year, yue, ri, shi, fromYear, toYear)
-
-    def getShiGz(self, dayTg, hour):
-        return _sxtwl.Lunar_getShiGz(self, dayTg, hour)
-
-    def getYearCal(self, By):
-        return _sxtwl.Lunar_getYearCal(self, By)
-
-    def getRunMonth(self, By):
-        return _sxtwl.Lunar_getRunMonth(self, By)
-
-    def getLunarMonthNum(self, By, month, isRun=False):
-        return _sxtwl.Lunar_getLunarMonthNum(self, By, month, isRun)
-
-    def __init__(self):
-        _sxtwl.Lunar_swiginit(self, _sxtwl.new_Lunar())
-    __swig_destroy__ = _sxtwl.delete_Lunar
-
-# Register Lunar in _sxtwl:
-_sxtwl.Lunar_swigregister(Lunar)
-
 class Time(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
@@ -607,44 +246,124 @@ class Time(object):
 # Register Time in _sxtwl:
 _sxtwl.Time_swigregister(Time)
 
-class JD(object):
+class GZ(object):
     thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
     __repr__ = _swig_repr
 
-    @staticmethod
-    def DD2JD(y, m, d):
-        return _sxtwl.JD_DD2JD(y, m, d)
+    def __init__(self, *args):
+        _sxtwl.GZ_swiginit(self, _sxtwl.new_GZ(*args))
+    tg = property(_sxtwl.GZ_tg_get, _sxtwl.GZ_tg_set)
+    dz = property(_sxtwl.GZ_dz_get, _sxtwl.GZ_dz_set)
+    __swig_destroy__ = _sxtwl.delete_GZ
+
+# Register GZ in _sxtwl:
+_sxtwl.GZ_swigregister(GZ)
+
+class Day(object):
+    thisown = property(lambda x: x.this.own(), lambda x, v: x.this.own(v), doc="The membership flag")
+
+    def __init__(self, *args, **kwargs):
+        raise AttributeError("No constructor defined")
+    __repr__ = _swig_repr
 
     @staticmethod
-    def JD2DD(jd):
-        return _sxtwl.JD_JD2DD(jd)
+    def fromSolar(_year, _month, _day):
+        return _sxtwl.Day_fromSolar(_year, _month, _day)
 
     @staticmethod
-    def toJD(time):
-        return _sxtwl.JD_toJD(time)
+    def fromLunar(year, month, day, isRun=False):
+        return _sxtwl.Day_fromLunar(year, month, day, isRun)
 
-    @staticmethod
-    def timeStr(jd):
-        return _sxtwl.JD_timeStr(jd)
+    def after(self, day):
+        return _sxtwl.Day_after(self, day)
 
-    def __init__(self):
-        _sxtwl.JD_swiginit(self, _sxtwl.new_JD())
-    __swig_destroy__ = _sxtwl.delete_JD
+    def before(self, day):
+        return _sxtwl.Day_before(self, day)
 
-# Register JD in _sxtwl:
-_sxtwl.JD_swigregister(JD)
+    def getLunarDay(self):
+        return _sxtwl.Day_getLunarDay(self)
 
-def JD_DD2JD(y, m, d):
-    return _sxtwl.JD_DD2JD(y, m, d)
+    def getLunarMonth(self):
+        return _sxtwl.Day_getLunarMonth(self)
 
-def JD_JD2DD(jd):
-    return _sxtwl.JD_JD2DD(jd)
+    def getLunarYear(self, chineseNewYearBoundary=True):
+        return _sxtwl.Day_getLunarYear(self, chineseNewYearBoundary)
 
-def JD_toJD(time):
-    return _sxtwl.JD_toJD(time)
+    def getYearGZ(self, chineseNewYearBoundary=False):
+        return _sxtwl.Day_getYearGZ(self, chineseNewYearBoundary)
 
-def JD_timeStr(jd):
-    return _sxtwl.JD_timeStr(jd)
+    def getMonthGZ(self):
+        return _sxtwl.Day_getMonthGZ(self)
 
+    def getDayGZ(self):
+        return _sxtwl.Day_getDayGZ(self)
+
+    def getHourGZ(self, hour):
+        return _sxtwl.Day_getHourGZ(self, hour)
+
+    def isLunarLeap(self):
+        return _sxtwl.Day_isLunarLeap(self)
+
+    def getSolarYear(self):
+        return _sxtwl.Day_getSolarYear(self)
+
+    def getSolarMonth(self):
+        return _sxtwl.Day_getSolarMonth(self)
+
+    def getSolarDay(self):
+        return _sxtwl.Day_getSolarDay(self)
+
+    def getWeek(self):
+        return _sxtwl.Day_getWeek(self)
+
+    def getWeekIndex(self):
+        return _sxtwl.Day_getWeekIndex(self)
+
+    def hasJieQi(self):
+        return _sxtwl.Day_hasJieQi(self)
+
+    def getJieQi(self):
+        return _sxtwl.Day_getJieQi(self)
+
+    def getJieQiJD(self):
+        return _sxtwl.Day_getJieQiJD(self)
+
+    def getConstellation(self):
+        return _sxtwl.Day_getConstellation(self)
+    __swig_destroy__ = _sxtwl.delete_Day
+
+# Register Day in _sxtwl:
+_sxtwl.Day_swigregister(Day)
+
+def Day_fromSolar(_year, _month, _day):
+    return _sxtwl.Day_fromSolar(_year, _month, _day)
+
+def Day_fromLunar(year, month, day, isRun=False):
+    return _sxtwl.Day_fromLunar(year, month, day, isRun)
+
+
+def fromSolar(year, month, day):
+    return _sxtwl.fromSolar(year, month, day)
+
+def fromLunar(year, month, day, isRun=False):
+    return _sxtwl.fromLunar(year, month, day, isRun)
+
+def siZhu2Year(year, yue, ri, shi, fromYear, toYear):
+    return _sxtwl.siZhu2Year(year, yue, ri, shi, fromYear, toYear)
+
+def getShiGz(dayTg, hour):
+    return _sxtwl.getShiGz(dayTg, hour)
+
+def getRunMonth(By):
+    return _sxtwl.getRunMonth(By)
+
+def getLunarMonthNum(By, month, isRun=False):
+    return _sxtwl.getLunarMonthNum(By, month, isRun)
+
+def JD2DD(jd):
+    return _sxtwl.JD2DD(jd)
+
+def toJD(time):
+    return _sxtwl.toJD(time)
 
 
