@@ -205,7 +205,7 @@ namespace sxtwl
 				year = year + 1;
 			}
 
-			//计算1月1号的信息
+			//计算1月1号的信息
 			Time t;
 			t.h = 12, t.m = 0, t.s = 0.1;
 			t.Y = year;
@@ -262,7 +262,7 @@ namespace sxtwl
 					startGz.tg = D % 10;
 					startGz.dz = D % 12;
 
-					//获取准确节气的时间
+					//获取准确节气的时间
 					auto jd2 = SSQPtr.ZQ[0] + dt_T(SSQPtr.ZQ[0]) - (8.0 / 24.0);
 					auto w = XL::S_aLon(jd2 / 36525, 3);
 					w = int2((w - 0.13) / pi2 * 24) * pi2 / 24;
@@ -297,7 +297,7 @@ namespace sxtwl
 					endGz.tg = D % 10;
 					endGz.dz = D % 12;
 
-					//获取准确节气的时间
+					//获取准确节气的时间
 					auto jd2 = SSQPtr.ZQ[0] + dt_T(SSQPtr.ZQ[0]) - (8.0 / 24.0);
 					auto w = XL::S_aLon(jd2 / 36525, 3);
 					w = int2((w - 0.13) / pi2 * 24) * pi2 / 24;
@@ -418,7 +418,7 @@ namespace sxtwl
 		return ret;
 	}
 
-	GZ getShiGz(uint8_t dayTg, uint8_t hour)
+	GZ getShiGz(uint8_t dayTg, uint8_t hour, bool isZaoWanZiShi)
 	{
 		GZ ret;
 		//    甲己日起甲子时
@@ -433,27 +433,33 @@ namespace sxtwl
 			ret.dz = 0;
 		}
 
+		// 如果非早晚子时，以及时间为23点，则算第二日的起始子时
+		if (!isZaoWanZiShi && hour == 23)
+		{
+			step = 0;
+		}
+
 		switch (dayTg)
 		{
-		case 0:
-		case 5:
+		case 0: //甲
+		case 5: //己
 			ret.tg = 0 + step;
 			break;
-		case 1:
-		case 6:
+		case 1: //乙
+		case 6: //庚
 			ret.tg = 2 + step;
 			break;
 
-		case 2:
-		case 7:
+		case 2: //丙
+		case 7: //辛
 			ret.tg = 4 + step;
 			break;
-		case 3:
-		case 8:
+		case 3: //丁
+		case 8: //壬
 			ret.tg = 6 + step;
 			break;
-		case 4:
-		case 9:
+		case 4: //戊
+		case 9: //葵
 			ret.tg = 8 + step;
 			break;
 		default:
@@ -466,7 +472,7 @@ namespace sxtwl
 
 	uint8_t getRunMonth(int By)
 	{
-		//计算1月1号的信息
+		//计算1月1号的信息
 		Time t;
 		t.h = 12, t.m = 0, t.s = 0.1;
 		t.Y = By;
@@ -514,7 +520,7 @@ namespace sxtwl
 			year = year + 1;
 		}
 
-		//计算1月1号的信息
+		//计算1月1号的信息
 		Time t;
 		t.h = 12, t.m = 0, t.s = 0.1;
 		t.Y = year;

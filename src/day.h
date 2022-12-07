@@ -109,7 +109,8 @@ public:
     GZ getYearGZ(bool chineseNewYearBoundary = false);
     GZ getMonthGZ();
     GZ getDayGZ();
-	GZ getHourGZ(uint8_t hour);
+    // 注意非早晚子时的时候，day要算第二天
+	GZ getHourGZ(uint8_t hour, bool isZaoWanZiShi = true);
     bool  isLunarLeap();
 
     int getSolarYear();
@@ -128,7 +129,7 @@ public:
 public:
     static Day *fromSolar(int _year, uint8_t _month, int _day)
     {
-        Time t = { 0 };
+        Time t;
         t.h = 12, t.m = 0, t.s = 0.1;
         t.Y = _year;
         t.M = _month;
@@ -139,7 +140,7 @@ public:
 
     static Day *fromLunar(int year, uint8_t month, int day, bool isRun = false)
     {
-        Time t = { 0 };
+        Time t;
         t.h = 12, t.m = 0, t.s = 0.1;
         t.Y = year;
         t.M = 1;
